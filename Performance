@@ -1,3 +1,10 @@
+#Implement indexes that provide a benefit to your queries.
+This involved creating missing indexes and removing poor performing or unutilized indexes. 
+Having a large number of indexes can be detrimental to DML transactions. 
+Appropriate indexing means only creating indexes which have a positive impact to your read performance that outweigh the negative impact on write performance which requires a good understanding of your workload.
+
+This script will help you identify missing indexes:
+
 
 SELECT
 	migs.avg_total_user_cost * (migs.avg_user_impact / 100.0) * (migs.user_seeks + migs.user_scans) AS improvement_measure,
